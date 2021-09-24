@@ -2,7 +2,6 @@
 
 """
 Simplified version for DVC senior robotics students
-
 """
 
 from easygopigo3 import EasyGoPiGo3
@@ -57,7 +56,7 @@ def Main():
         # CHECK IF THE ROBOT IS SUPER CLOSE TO AN OBSTACLE
         elif distance_sensor.read_mm() < 250:
             # stop the GoPiGo
-            gopigo3.stop()
+            gopigo3.set_speed(1)
             print("250mmm or less!")
 
         elif distance_sensor.read_mm() < 500:
@@ -80,7 +79,7 @@ def Main():
         gopigo3.close_eyes()
         gopigo3.led_off(0)
         gopigo3.led_off(1)
-        print("Current distance : {:4} mm Current speed: {:4} ".format(current_distance, int(determined_speed)))
+        print("Current distance : {:4} mm Current speed: {:4} ".format(distance_sensor.read_mm(), gopigo3.get_speed()))
         sleep(0.08)
 
     # and finally stop the GoPiGo3 from moving
