@@ -57,7 +57,7 @@ def Main():
         elif distance_sensor.read_mm() < 250:
             # stop the GoPiGo
             gopigo3.set_speed(1) #for some reason set_speed(0) sets the speed to max?!
-            print("250mmm or less!")
+            print("250mm or less!")
 
         elif distance_sensor.read_mm() < 500:
             # slow down the GoPiGo
